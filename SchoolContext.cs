@@ -9,7 +9,6 @@ public class SchoolContext: DbContext
     public DbSet<Student> Students { get; set; }
     public DbSet<Subject> Subjects { get; set; }
     public DbSet<StudentSubject> StudentSubjects { get; set; }
-    //public DbSet<TeacherSubjects> TeacherSubjects { get; set; }
 
     public SchoolContext(DbContextOptions<SchoolContext> options) : base(options) { }
 
@@ -32,7 +31,6 @@ public class SchoolContext: DbContext
         {
             student.ToTable("Student");
             student.HasKey(p => p.StudentId);
-            //student.HasMany(p => p.Subjects).WithMany(p => p.Students);
         });
 
         List<Subject> subjectInit = new List<Subject>();
@@ -47,18 +45,7 @@ public class SchoolContext: DbContext
         {
             studentSubjects.ToTable("StudentSubject");
             studentSubjects.HasKey(p => new { p.StudentId, p.SubjectId, p.AcademicYear });
-            //studentSubjects.HasOne(p => p.Subject).WithMany().HasForeignKey(p => p.SubjectId);
-            //studentSubjects.HasOne(p => p.Student).WithMany().HasForeignKey(p => p.StudentId);
         });
-
-        /*List<TeacherSubjects> teacherSubjectsInit = new List<TeacherSubjects>();
-        modelBuilder.Entity<TeacherSubjects>(teachersSubjects =>
-        {
-            teachersSubjects.ToTable("TeacherSubjects");
-            teachersSubjects.HasKey(p => new { p.TeacherId, p.SubjectId });
-            teachersSubjects.HasOne(p => p.Teacher).WithMany().HasForeignKey(p => p.TeacherId);
-            teachersSubjects.HasOne(p => p.Subject).WithMany().HasForeignKey(p => p.SubjectId);
-        });*/
     }
 }
 

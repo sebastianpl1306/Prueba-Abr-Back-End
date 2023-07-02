@@ -1,7 +1,14 @@
-﻿namespace Prueba_Abr_Back_End.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Prueba_Abr_Back_End.Models;
 
 public class Student
 {
+    public Student()
+    {
+        this.Subjects = new List<StudentSubject>();
+    }
+
     public Guid StudentId { get; set; }
     public string Identification { get; set; }
     public string Name { get; set; }
