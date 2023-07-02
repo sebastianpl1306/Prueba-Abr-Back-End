@@ -12,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSqlServer<SchoolContext>("Data Source=DESKTOP-C1DKC49\\SQLEXPRESS; Initial Catalog=SchoolDB; Integrated Security=true;Trusted_Connection=SSPI;MultipleActiveResultSets=true;Trust Server Certificate=true");
 builder.Services.AddScoped<ITeacherService, TeacherService>();
+builder.Services.AddScoped<IStudentService, StudentService>();
 
 var app = builder.Build();
 
