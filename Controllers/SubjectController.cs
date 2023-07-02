@@ -24,6 +24,17 @@ public class SubjectController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] Subject subject)
     {
-        return Ok(subjectService.Save(subject));
+        return Ok(subjectService.Save(subject).Result);
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult Put(Guid id, [FromBody] Subject subject)
+    {
+        return Ok(subjectService.Put(id, subject).Result);
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete(Guid id) {
+        return Ok(subjectService.Delete(id).Result);
     }
 }

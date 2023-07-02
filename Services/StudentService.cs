@@ -68,7 +68,7 @@ public class StudentService : IStudentService
             var currentStudent = context.Students
             .Include(p => p.Subjects)
             .FirstOrDefault(s => s.StudentId == id);
-            if (currentStudent != null)
+            if (currentStudent != null && currentStudent.Subjects.Count == 0)
             {
                 context.Remove(currentStudent);
                 context.SaveChanges();
