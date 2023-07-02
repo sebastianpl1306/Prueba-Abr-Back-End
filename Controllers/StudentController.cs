@@ -27,5 +27,18 @@ public class StudentController : ControllerBase
         studentService.Save(student);
         return Ok();
     }
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete(Guid id)
+    {
+        return Ok(studentService.Delete(id).Result);
+    }
+
+    [HttpPut("{id}")]
+    public IActionResult Put(Guid id, [FromBody] Student student)
+    {
+        
+        return Ok(studentService.Update(id, student).Result);
+    }
 }
 

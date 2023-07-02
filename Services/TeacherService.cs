@@ -19,7 +19,7 @@ public class TeacherService: ITeacherService
     public async Task Save(Teacher teacher)
     {
         context.Add(teacher);
-        await context.SaveChangesAsync();
+        context.SaveChanges();
     }
 
     public async Task Update(Guid id, Teacher teacher)
@@ -33,7 +33,7 @@ public class TeacherService: ITeacherService
             currentTeacher.LastName = teacher.LastName;
             currentTeacher.Age = teacher.Age;
 
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 
@@ -43,7 +43,7 @@ public class TeacherService: ITeacherService
         if (currentTeacher != null)
         {
             context.Remove(currentTeacher);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 }

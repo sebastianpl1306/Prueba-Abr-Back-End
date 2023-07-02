@@ -14,16 +14,30 @@ public class StudentService : IStudentService
 
     public IEnumerable<Student> Get()
     {
-        return context.Students.Include(p => p.Subjects).ThenInclude(ss => ss.Subject);
+        try
+        {
+            return context.Students.Include(p => p.Subjects).ThenInclude(ss => ss.Subject);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            return context.Students;
+        }
     }
 
     public async Task Save(Student student)
     {
-        context.Students.Add(student);
-        await context.SaveChangesAsync();
+        try
+        {
+            context.Students.Add(student);
+            context.SaveChanges();
+        }catch(Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+        }
     }
 
-    public async Task Update(Guid id, Student student)
+    public async Task<Object> Update(Guid id, Student student)
     {
         var currentStudent = context.Students.Find(id);
         if (currentStudent != null)
@@ -35,17 +49,42 @@ public class StudentService : IStudentService
             currentStudent.LastName = student.LastName;
             currentStudent.Age = student.Age;
 
-            await context.SaveChangesAsync();
+            context.SaveChanges();
+
+            var response = new { ok = true, studentUpdate = currentStudent };
+            return response;
+        }
+        else
+        {
+            var response = new { ok = true, studentUpdate = currentStudent };
+            return response;
         }
     }
 
-    public async Task Delete(Guid id)
+    public async Task<Object> Delete(Guid id)
     {
-        var currentStudent = context.Students.Find(id);
-        if (currentStudent != null)
+        try
         {
-            context.Remove(currentStudent);
-            await context.SaveChangesAsync();
+            var currentStudent = context.Students
+            .Include(p => p.Subjects)
+            .FirstOrDefault(s => s.StudentId == id);
+            if (currentStudent != null)
+            {
+                context.Remove(currentStudent);
+                context.SaveChanges();
+                var response = new { ok = true, msg = "Student Delete" };
+                return response;
+            }
+            else
+            {
+                var response = new { ok = false, msg = "The student have subjects assigned" };
+                return response;
+            }
+        }
+        catch (Exception ex)
+        {
+            var response = new { ok = true, msg = ex.ToString() };
+            return response;
         }
     }
 }
@@ -54,6 +93,6 @@ public interface IStudentService
 {
     IEnumerable<Student> Get();
     Task Save(Student student);
-    Task Update(Guid id, Student student);
-    Task Delete(Guid id);
+    Task<Object> Update(Guid id, Student student);
+    Task<Object> Delete(Guid id);
 }
