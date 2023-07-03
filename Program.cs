@@ -14,6 +14,7 @@ builder.Services.AddSqlServer<SchoolContext>("Data Source=DESKTOP-C1DKC49\\SQLEX
 builder.Services.AddScoped<ITeacherService, TeacherService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
+builder.Services.AddScoped<IStudentSubjectService, StudentSubjectService>();
 
 var app = builder.Build();
 

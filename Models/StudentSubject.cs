@@ -10,6 +10,6 @@ public class StudentSubject
     public int AcademicYear { get; set; }
     public decimal Grade { get; set; }
     [JsonIgnore]
-    public virtual Student Student { get; set; }
-    public virtual Subject Subject { get; set; }
+    public virtual Student? Student { get; set; }
+    public virtual Subject? Subject { get; set; }
 }
