@@ -1,4 +1,5 @@
-﻿using Prueba_Abr_Back_End.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using Prueba_Abr_Back_End.Models;
 
 namespace Prueba_Abr_Back_End.Services;
 
@@ -13,7 +14,7 @@ public class TeacherService: ITeacherService
 
     public IEnumerable<Teacher> Get()
     {
-        return context.Teachers;
+        return context.Teachers.Include(p => p.Subjects);
     }
 
     public async Task Save(Teacher teacher)

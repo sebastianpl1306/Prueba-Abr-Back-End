@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Prueba_Abr_Back_End.Models;
+using System.Threading;
 
 namespace Prueba_Abr_Back_End;
 
@@ -38,6 +39,7 @@ public class SchoolContext: DbContext
         {
             subject.ToTable("Subject");
             subject.HasKey(p => p.SubjectId);
+            subject.HasOne(p => p.Teacher).WithMany(p => p.Subjects).HasForeignKey(p => p.TeacherId);
         });
 
         List<StudentSubject> studentSubjectsInit = new List<StudentSubject>();

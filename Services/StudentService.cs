@@ -16,7 +16,7 @@ public class StudentService : IStudentService
     {
         try
         {
-            return context.Students.Include(p => p.Subjects).ThenInclude(ss => ss.Subject);
+            return context.Students.Include(p => p.Subjects).ThenInclude(p => p.Subject);
         }
         catch (Exception ex)
         {
@@ -68,7 +68,7 @@ public class StudentService : IStudentService
             var currentStudent = context.Students
             .Include(p => p.Subjects)
             .FirstOrDefault(s => s.StudentId == id);
-            if (currentStudent != null)
+            if (currentStudent != null && currentStudent.Subjects.Count == 0)
             {
                 context.Remove(currentStudent);
                 context.SaveChanges();
