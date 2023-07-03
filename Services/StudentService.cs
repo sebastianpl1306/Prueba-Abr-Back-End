@@ -16,7 +16,7 @@ public class StudentService : IStudentService
     {
         try
         {
-            return context.Students.Include(p => p.Subjects).ThenInclude(ss => ss.Subject);
+            return context.Students.Include(p => p.Subjects).ThenInclude(p => p.Subject);
         }
         catch (Exception ex)
         {

@@ -11,5 +11,9 @@ public class Subject
 
     public Guid SubjectId { get; set; }
     public string Name { get; set; }
+    public Guid TeacherId { get; set; }
+    [JsonIgnore]
+    public virtual Teacher Teacher { get; set; }
+    [JsonIgnore]
     public virtual ICollection<StudentSubject> Students { get; set; }
 }
