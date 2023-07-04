@@ -21,14 +21,13 @@ export const TableSubjects = () => {
               {
                   subjects.map(subject => (
                       <tr key={subject.subjectId}>
-                          <td>{subject.subjectId}</td>
-                          <td>{subject.name}</td>
+                        <td>{subject.subjectId}</td>
+                        <td>{subject.name}</td>
                       </tr>
                   ))
               }
           </tbody>
       </table>
-      {/* <ModalUpdateStudent initialState={initialStateEdit}/> */}
     </>
   )
 }

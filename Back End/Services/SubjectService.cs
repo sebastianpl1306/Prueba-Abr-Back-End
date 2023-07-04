@@ -31,7 +31,7 @@ public class SubjectService : ISubjectService
         {
             context.Subjects.Add(subject);
             context.SaveChanges();
-            var response = new { ok = true, msg = "Subject Create" };
+            var response = new { ok = true, subject };
             return response;
         }
         catch (Exception ex)

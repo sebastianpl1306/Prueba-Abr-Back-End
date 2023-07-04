@@ -17,15 +17,6 @@ export const subjectsSlice = createSlice({
         },
         addSubject: (state, { payload })=>{
             state.subjects.push(payload);
-        },
-        deleteSubject: (state, { payload })=>{
-            state.subjects = state.subjects.filter(subject => subject.subjectId != payload);
-        },
-        updateSubject: (state, { payload })=>{
-            state.subjects = state.subjects.map((subject) => subject.subjectId === payload.subjectId ? payload : subject);
-        },
-        setActiveSubject: (state, { payload }) => {
-            state.activeSubject = payload;
         }
     }
 });

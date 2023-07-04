@@ -13,7 +13,7 @@ public class Subject
     public string Name { get; set; }
     public Guid TeacherId { get; set; }
     [JsonIgnore]
-    public virtual Teacher Teacher { get; set; }
+    public virtual Teacher? Teacher { get; set; }
     [JsonIgnore]
     public virtual ICollection<StudentSubject> Students { get; set; }
 }
