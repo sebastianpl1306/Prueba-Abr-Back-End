@@ -32,7 +32,7 @@ public class TeacherService: ITeacherService
         }
     }
 
-    public async Task Update(Guid id, Teacher teacher)
+    public async Task<Object> Update(Guid id, Teacher teacher)
     {
         var currentTeacher = context.Teachers.Find(id);
         if(currentTeacher != null) {
@@ -45,6 +45,7 @@ public class TeacherService: ITeacherService
 
             context.SaveChanges();
         }
+        return new { ok = true, currentTeacher };
     }
 
     public async Task Delete(Guid id)
@@ -62,6 +63,6 @@ public interface ITeacherService
 {
     IEnumerable<Teacher> Get();
     Task<Object> Save(Teacher teacher);
-    Task Update(Guid id, Teacher teacher);
+    Task<Object> Update(Guid id, Teacher teacher);
     Task Delete(Guid id);
 }

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { addTeacher, setTeachers, startLoadTeachers } from '../teachers';
+import { addTeacher, setTeachers, startLoadTeachers, updateTeacher } from '../teachers';
 import schoolApi from '../../api/SchoolApi';
+import Swal from 'sweetalert2';
 
 export const useTeachers = () => {
   const dispatch = useDispatch();
@@ -33,9 +34,24 @@ export const useTeachers = () => {
     }
   }
 
+  const startUpdateTeacher = async(teacherUpdate)=>{
+    try {
+      const { data } = await schoolApi.put(`/teacher/${teacherUpdate.teacherId}`, teacherUpdate);
+      if(!data.ok){
+        throw new Error("[ERROR] No se pudo actualizar el profesor");
+      }
+      dispatch(updateTeacher(teacherUpdate));
+      Swal.fire('Profesor Actualizado',`El profesor fue actualizado con exito`,'success');
+    } catch (error) {
+      console.log(error);
+      throw new Error("[ERROR] Ocurrio Algo Inesperado");
+    }
+  }
+
   return {
     ...studentsState,
     startGetTeachers,
     startCreateTeacher,
+    startUpdateTeacher,
   }
 }

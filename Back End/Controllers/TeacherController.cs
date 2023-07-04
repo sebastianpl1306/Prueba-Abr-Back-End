@@ -30,8 +30,7 @@ public class TeacherController: ControllerBase
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, [FromBody] Teacher teacher)
     {
-        teacherService.Update(id, teacher);
-        return Ok();
+        return Ok(teacherService.Update(id, teacher).Result);
     }
 
     [HttpDelete("{id}")]

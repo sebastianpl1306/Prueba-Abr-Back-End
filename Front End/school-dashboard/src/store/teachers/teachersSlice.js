@@ -16,8 +16,11 @@ export const teachersSlice = createSlice({
         },
         addTeacher: (state, { payload })=>{
             state.teachers.push(payload);
+        },
+        updateTeacher: (state, { payload })=>{
+            state.teachers = state.teachers.map((teacher) => teacher.teacherId === payload.teacherId ? payload : teacher);
         }
     }
 });
 
-export const { setTeachers, startLoadTeachers, addTeacher } = teachersSlice.actions;
+export const { setTeachers, startLoadTeachers, addTeacher, updateTeacher } = teachersSlice.actions;
