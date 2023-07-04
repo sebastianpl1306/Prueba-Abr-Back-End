@@ -25,15 +25,20 @@ public class StudentService : IStudentService
         }
     }
 
-    public async Task Save(Student student)
+    public async Task<Object> Save(Student student)
     {
         try
         {
             context.Students.Add(student);
             context.SaveChanges();
-        }catch(Exception ex)
+            var response = new { ok = true, student };
+            return response;
+        }
+        catch(Exception ex)
         {
             Console.WriteLine(ex.ToString());
+            var response = new { ok = false, msg = ex.ToString() };
+            return response;
         }
     }
 
@@ -92,7 +97,7 @@ public class StudentService : IStudentService
 public interface IStudentService
 {
     IEnumerable<Student> Get();
-    Task Save(Student student);
+    Task<Object> Save(Student student);
     Task<Object> Update(Guid id, Student student);
     Task<Object> Delete(Guid id);
 }

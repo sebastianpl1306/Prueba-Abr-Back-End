@@ -24,8 +24,8 @@ public class StudentController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] Student student)
     {
-        studentService.Save(student);
-        return Ok();
+        
+        return Ok(studentService.Save(student).Result);
     }
 
     [HttpDelete("{id}")]
