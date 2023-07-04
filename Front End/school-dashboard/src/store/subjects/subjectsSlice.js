@@ -4,7 +4,8 @@ export const subjectsSlice = createSlice({
     name: 'subjects',
     initialState: {
         subjects: [],
-        isLoading: true
+        isLoading: true,
+        activeSubject: null
     },
     reducers: {
         loadSubjects: (state) =>{
@@ -14,7 +15,10 @@ export const subjectsSlice = createSlice({
             state.subjects = payload;
             state.isLoading = false;
         },
+        addSubject: (state, { payload })=>{
+            state.subjects.push(payload);
+        }
     }
 });
 
-export const { setSubjects, loadSubjects } = subjectsSlice.actions;
+export const { setSubjects, loadSubjects, addSubject, deleteSubject, updateSubject, setActiveSubject } = subjectsSlice.actions;

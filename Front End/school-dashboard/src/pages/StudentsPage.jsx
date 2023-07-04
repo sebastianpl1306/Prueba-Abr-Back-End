@@ -15,7 +15,7 @@ export const StudentsPage = () => {
       <div className="container">
         <div className="row">
           <h1>StudentsPage</h1>
-          <hr className=""/>
+          <hr/>
           <div className="col-12 my-1 text-end">
             <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCreateStudent">+ Agregar Estudiante</button>
           </div>
