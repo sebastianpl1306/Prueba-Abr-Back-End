@@ -7,4 +7,4 @@ const schoolApi = axios.create({
     baseURL: VITE_API_URL
 });
 
-export default chiriviApi;
+export default schoolApi;
