@@ -6,3 +6,5 @@ export * from './TableSubjectsStudent';
 export * from './ModalAssignSubject';
 export * from './TableSubjects';
 export * from './ModalCreateStudent';
+export * from './TeacherTable';
+export * from './ModalCreateTeacher';

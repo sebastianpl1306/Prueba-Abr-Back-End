@@ -7,7 +7,7 @@ export const SubjectsPage = () => {
     <CustomeLayout>
       <div className="container">
         <div className="row">
-          <h1>SubjectsPage</h1>
+          <h1>Materias</h1>
           <hr/>
           <div className="col-12 my-1 text-end">
             <button className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCreateSubject">+ Agregar Materia</button>

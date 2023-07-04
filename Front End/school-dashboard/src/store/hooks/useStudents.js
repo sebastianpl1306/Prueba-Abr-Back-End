@@ -25,7 +25,7 @@ export const useStudents = () => {
       }
       const { data } = await schoolApi.post('/student', student);
       if(!data.ok || !data.student){
-        throw new Error("[ERROR] No se pudo agregar la tarea");
+        throw new Error("[ERROR] No se pudo agregar el estudiante");
       }
       dispatch(addStudent(data.student));
       Swal.fire('Estudiante Creado',`El estudiante fue creado con exito`,'success');

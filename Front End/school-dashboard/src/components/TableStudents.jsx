@@ -17,8 +17,8 @@ export const TableStudents = () => {
 
   const handleDelete = (studentId, subjects)=>{
     if(subjects.length > 0){
-        Swal.fire('No se pudo eliminar',`El estudiante ya tiene materias asignadas`,'error');
-        return;
+      Swal.fire('No se pudo eliminar',`El estudiante ya tiene materias asignadas`,'error');
+      return;
     }
     startDeleteStudent(studentId);
   }

@@ -24,15 +24,13 @@ public class TeacherController: ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] Teacher teacher)
     {
-        teacherService.Save(teacher);
-        return Ok();
+        return Ok(teacherService.Save(teacher).Result);
     }
 
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, [FromBody] Teacher teacher)
     {
-        teacherService.Update(id, teacher);
-        return Ok();
+        return Ok(teacherService.Update(id, teacher).Result);
     }
 
     [HttpDelete("{id}")]
