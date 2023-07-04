@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import schoolApi from '../../api/SchoolApi';
-import { addStudent, deleteStudent, getStudents, loadingStudents, updateStudent } from '../students';
+import { addStudent, deleteStudent, getStudents, loadingStudents, setActiveStudent, updateStudent } from '../students';
 import Swal from 'sweetalert2';
 
 export const useStudents = () => {
@@ -60,11 +60,37 @@ export const useStudents = () => {
     }
   }
 
+  const startActiveStudent = async(studentId)=>{
+    try {
+      const { data } = await schoolApi.get(`/student/${studentId}`);
+      if(!data.ok){
+        throw new Error("[ERROR] No se pudo obtener el estudiante");
+      }
+      dispatch(setActiveStudent(data.student));
+    } catch (error) {
+      throw new Error("[ERROR] Ocurrio Algo Inesperado");
+    }
+  }
+
+  const startAssignSubject = async(subject)=>{
+    try {
+      const { data } = await schoolApi.post('/student/assign', subject);
+      if(!data.ok){
+        throw new Error("[ERROR] No se pudo asignar la materia");
+      }
+      Swal.fire('Materia Asignada',`La materia fue asignada con exito`,'success');
+    } catch (error) {
+      throw new Error("[ERROR] Ocurrio Algo Inesperado");
+    }
+  }
+
   return {
     ...studentsState,
     startGetStudents,
     startCreateStudent,
     startDeleteStudent,
     startUpdateStudent,
+    startActiveStudent,
+    startAssignSubject,
   }
 }

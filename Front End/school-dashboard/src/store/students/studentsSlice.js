@@ -4,7 +4,8 @@ export const studentsSlice = createSlice({
     name: 'students',
     initialState: {
         students: [],
-        isLoading: true
+        isLoading: true,
+        activeStudent: null
     },
     reducers: {
         loadingStudents: (state) => {
@@ -23,7 +24,10 @@ export const studentsSlice = createSlice({
         updateStudent: (state, { payload })=>{
             state.students = state.students.map((student) => student.studentId === payload.studentId ? payload : student);
         },
+        setActiveStudent: (state, { payload }) => {
+            state.activeStudent = payload;
+        }
     }
 });
 
-export const { getStudents, loadingStudents, addStudent, deleteStudent, updateStudent } = studentsSlice.actions;
+export const { getStudents, loadingStudents, addStudent, deleteStudent, updateStudent, setActiveStudent } = studentsSlice.actions;
