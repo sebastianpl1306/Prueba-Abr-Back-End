@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddSqlServer<SchoolContext>("Data Source=DESKTOP-C1DKC49\\SQLEXPRESS; Initial Catalog=SchoolDB; Integrated Security=true;Trusted_Connection=SSPI;MultipleActiveResultSets=true;Trust Server Certificate=true");
+builder.Services.AddSqlServer<SchoolContext>(builder.Configuration.GetConnectionString("DefaultConnection"));
 builder.Services.AddScoped<ITeacherService, TeacherService>();
 builder.Services.AddScoped<IStudentService, StudentService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
