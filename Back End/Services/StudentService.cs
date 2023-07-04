@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.EntityFrameworkCore;
 using Prueba_Abr_Back_End.Models;
 
 namespace Prueba_Abr_Back_End.Services;
@@ -16,12 +17,31 @@ public class StudentService : IStudentService
     {
         try
         {
-            return context.Students.Include(p => p.Subjects).ThenInclude(p => p.Subject);
+            return context.Students;
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.ToString());
             return context.Students;
+        }
+    }
+
+    public async Task<Object> GetOne(Guid studentId)
+    {
+        try
+        {
+            var student = context.Students.Include(p => p.Subjects).ThenInclude(p => p.Subject).FirstOrDefault(p => p.StudentId == studentId);
+            if(student == null)
+            {
+                return new { ok = false, msg = "Student Not Found" };
+            }
+            return new { ok = true, student };
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            var response = new { ok = false, msg = "Error Invoke" };
+            return response;
         }
     }
 
@@ -37,7 +57,7 @@ public class StudentService : IStudentService
         catch(Exception ex)
         {
             Console.WriteLine(ex.ToString());
-            var response = new { ok = false, msg = ex.ToString() };
+            var response = new { ok = false, msg = "Error Invoke" };
             return response;
         }
     }
@@ -97,6 +117,7 @@ public class StudentService : IStudentService
 public interface IStudentService
 {
     IEnumerable<Student> Get();
+    Task<Object> GetOne(Guid studentId);
     Task<Object> Save(Student student);
     Task<Object> Update(Guid id, Student student);
     Task<Object> Delete(Guid id);

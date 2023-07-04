@@ -21,6 +21,12 @@ public class StudentController : ControllerBase
         return Ok(studentService.Get());
     }
 
+    [HttpGet("{id}")]
+    public IActionResult GetOne(Guid id)
+    {
+        return Ok(studentService.GetOne(id).Result);
+    }
+
     [HttpPost]
     public IActionResult Post([FromBody] Student student)
     {
