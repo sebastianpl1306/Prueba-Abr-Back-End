@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "c7b15f8d-a12e-49a5-978d-b7a500d525c5",
+		"name": "ABR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/teacher",
+			"item": [
+				{
+					"name": "ObtenerProfesores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5185/api/teacher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CrearProfesor",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identification\": \"123456789\",\r\n    \"name\": \"Julio\",\r\n    \"lastName\": \"Doe\",\r\n    \"age\": 35,\r\n    \"address\": \"123 Main St\",\r\n    \"phone\": \"5551234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5185/api/teacher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"teacher"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Profesor",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identification\": \"10004532145\",\r\n    \"name\": \"Pepe\",\r\n    \"lastName\": \"Jimenez\",\r\n    \"age\": 28,\r\n    \"address\": \"A.C 24 #12-34\",\r\n    \"phone\": \"4336543130\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5185/api/teacher/f2444b86-e071-4068-6fcc-08db7b06c8d7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"teacher",
+								"f2444b86-e071-4068-6fcc-08db7b06c8d7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarProfesor",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5185/api/teacher/f2444b86-e071-4068-6fcc-08db7b06c8d7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"teacher",
+								"f2444b86-e071-4068-6fcc-08db7b06c8d7"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/students",
+			"item": [
+				{
+					"name": "Obtener Estudiantes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5185/api/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Estudiante",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identification\": \"123456789\",\r\n    \"name\": \"Julio\",\r\n    \"lastName\": \"Doe\",\r\n    \"age\": 35,\r\n    \"address\": \"123 Main St\",\r\n    \"phone\": \"5551234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5185/api/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"student"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Estudiante",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identification\": \"123456789\",\r\n    \"name\": \"Cesar\",\r\n    \"lastName\": \"Stiven\",\r\n    \"age\": 23,\r\n    \"address\": \"A.c 23\",\r\n    \"phone\": \"43367342\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5185/api/student/863af475-8c5d-4733-d7d4-08db7b2448bf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"student",
+								"863af475-8c5d-4733-d7d4-08db7b2448bf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Estudiante",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5185/api/student/863af475-8c5d-4733-d7d4-08db7b2448bf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"student",
+								"863af475-8c5d-4733-d7d4-08db7b2448bf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Asignar Materia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"StudentId\": \"c2f230a8-7bfd-4d23-bd42-237a3678e58f\",\r\n    \"SubjectId\": \"ec53ab79-bb4a-4df2-bd69-5fe8a52ac21f\",\r\n    \"AcademicYear\": 2023,\r\n    \"Grade\": 4.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5185/api/student/assign",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"student",
+								"assign"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/Subjects",
+			"item": [
+				{
+					"name": "Consultar Materias",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5185/api/subject",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"subject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear Materias",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ejemplo2\",\r\n    \"teacherId\": \"c2f890a7-7bfd-4d84-bd45-957a2567e59f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5185/api/subject",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"subject"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Materia",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Quimica\",\r\n    \"teacherId\": \"c2f890a7-7bfd-4d84-bd45-957a2567e59f\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5185/api/subject/a370d37f-6a9c-421a-c406-08db7b2ee8c0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"subject",
+								"a370d37f-6a9c-421a-c406-08db7b2ee8c0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Materia",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5185/api/subject/3a349a26-0637-4f0d-feb2-08db7b43faf4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"subject",
+								"3a349a26-0637-4f0d-feb2-08db7b43faf4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/report",
+			"item": [
+				{
+					"name": "Obtener Reporte",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5185/api/report",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5185",
+							"path": [
+								"api",
+								"report"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
