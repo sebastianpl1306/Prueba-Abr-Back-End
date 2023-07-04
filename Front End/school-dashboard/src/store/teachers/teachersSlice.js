@@ -14,7 +14,10 @@ export const teachersSlice = createSlice({
             state.teachers = payload;
             state.isLoading = false;
         },
+        addTeacher: (state, { payload })=>{
+            state.teachers.push(payload);
+        }
     }
 });
 
-export const { setTeachers, startLoadTeachers } = teachersSlice.actions;
+export const { setTeachers, startLoadTeachers, addTeacher } = teachersSlice.actions;

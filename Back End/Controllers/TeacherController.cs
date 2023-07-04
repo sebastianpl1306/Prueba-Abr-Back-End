@@ -24,8 +24,7 @@ public class TeacherController: ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] Teacher teacher)
     {
-        teacherService.Save(teacher);
-        return Ok();
+        return Ok(teacherService.Save(teacher).Result);
     }
 
     [HttpPut("{id}")]

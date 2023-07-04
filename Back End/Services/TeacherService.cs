@@ -17,10 +17,19 @@ public class TeacherService: ITeacherService
         return context.Teachers.Include(p => p.Subjects);
     }
 
-    public async Task Save(Teacher teacher)
+    public async Task<Object> Save(Teacher teacher)
     {
-        context.Add(teacher);
-        context.SaveChanges();
+        try
+        {
+            context.Add(teacher);
+            context.SaveChanges();
+            return new { ok = true, teacher };
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            return new { ok = false, msg = "Error Invoke" };
+        }
     }
 
     public async Task Update(Guid id, Teacher teacher)
@@ -52,7 +61,7 @@ public class TeacherService: ITeacherService
 public interface ITeacherService
 {
     IEnumerable<Teacher> Get();
-    Task Save(Teacher teacher);
+    Task<Object> Save(Teacher teacher);
     Task Update(Guid id, Teacher teacher);
     Task Delete(Guid id);
 }
