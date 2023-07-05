@@ -16,9 +16,9 @@ export const StudentsInfoPage = () => {
     return(
         <CustomeLayout>
         <div className="container">
-            <div className="row">
-                <h1>No se encontro el usuario</h1>
-            </div>
+          <div className="row">
+            <h1>No se encontro el usuario</h1>
+          </div>
         </div>
         </CustomeLayout>
     );

@@ -8,3 +8,4 @@ export * from './TableSubjects';
 export * from './ModalCreateStudent';
 export * from './TeacherTable';
 export * from './ModalCreateTeacher';
+export * from './TableReport';

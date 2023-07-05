@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 export const useTeachers = () => {
   const dispatch = useDispatch();
-  const studentsState = useSelector(state => state.teacher);
+  const teacherState = useSelector(state => state.teacher);
 
   const startGetTeachers = async() =>{
     try {
@@ -49,7 +49,7 @@ export const useTeachers = () => {
   }
 
   return {
-    ...studentsState,
+    ...teacherState,
     startGetTeachers,
     startCreateTeacher,
     startUpdateTeacher,

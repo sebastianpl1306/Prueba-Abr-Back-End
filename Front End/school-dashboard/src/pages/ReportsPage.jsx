@@ -1,3 +1,4 @@
+import { TableReport } from '../components';
 import { CustomeLayout } from '../layout';
 
 export const ReportsPage = () => {
@@ -5,7 +6,9 @@ export const ReportsPage = () => {
     <CustomeLayout>
       <div className="container">
           <div className="row">
-            <h1>ReportsPage</h1>
+            <h1>Reporte</h1>
+            <hr/>
+            <TableReport/>
           </div>
       </div>
     </CustomeLayout>

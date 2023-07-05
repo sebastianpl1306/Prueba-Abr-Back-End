@@ -9,9 +9,6 @@ export const NavBarHome = () => {
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                    <a className="nav-link" aria-current="page" href="/">Inicio</a>
-                </li>
-                <li className="nav-item">
                     <a className="nav-link" aria-current="page" href="/profesores">Profesores</a>
                 </li>
                 <li className="nav-item">

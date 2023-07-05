@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 
 export const useSubjects = () => {
   const dispatch = useDispatch();
-  const studentsState = useSelector(state => state.subjects);
+  const subjectsState = useSelector(state => state.subjects);
 
   const startGetSubjects = async() =>{
     try {
@@ -35,7 +35,7 @@ export const useSubjects = () => {
   }
 
   return {
-    ...studentsState,
+    ...subjectsState,
     startGetSubjects,
     startCreateSubject,
   }
