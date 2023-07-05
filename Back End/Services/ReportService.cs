@@ -22,7 +22,8 @@ public class ReportService : IReportService
                 {
                     AcademicYear = ss.AcademicYear,
                     StudentIdentification = ss.Student.Identification,
-                    StudentName = ss.Student.Name,
+                    StudentName = $"{ss.Student.Name} {ss.Student.LastName}",
+                    CodeSubject = ss.Subject.SubjectId,
                     SubjectName = ss.Subject.Name,
                     TeacherIdentification = ss.Subject.Teacher.Identification,
                     TeacherName = ss.Subject.Teacher.Name,
